@@ -1,0 +1,141 @@
+RELATIONAL MODEL
+
+table is called Relation
+columns is called attributes
+Rows are called tuples
+
+KEYS- uniquely identify a record
+
+the different types of keys are
+
+1)Super key
+2)candidate key
+3)primary key
+4)alternate Key
+5)composite key
+6)Foreign key
+
+SUPER KEY - one or more attributes that helps to uniquely identify a record
+
+CANDIDATE KEY -
+
+                - the minimal super key that helps to identify a record
+
+                - candidate key is an attribute,that is sufficient to distinguish every                       tuple in the relation from each one.
+
+*Key Attributes - the attributes that participate in the selection of candidate key are key                   attributes
+
+*Non- key attributes - the attributes other than the candidate key attributes in a                                table/relation are called non-key attributes
+
+PRIMARY KEY - primary key is used to uniquely identify the tuples
+            
+            - there may be different tuples like student id,email id and phone number. but               it is difficult to type or remember email id or phone number so student id is              selected as primary key
+
+ALTERNATE KEY - after selecting the primary key , the remaining candidate keys are called                   alternate key
+
+COMPOSITE PRIMARY KEY - 
+
+            - composite primary key is a combination of more than one attribute of the                   relation which uniquely identifies the tuple
+
+FOREIGN KEY - a set of attributes whose values are required to match values of a column in              the same or another table
+
+            - Foreign key of a table(child table) should be the unique key in the parent table
+            - in the child table, foreign key not have to be unique and they can also 
+            
+SQL COMMAND GROUPS
+
+DQL- DATA QUERY LANGUAGE
+-used for querying database
+SELECT - used to retrive the data present in the database
+
+DDL- DATA DEFINITION LANGUAGE
+- used to define data structure or schema
+
+DDL and Description:
+
+CREATE-creates objects in the database
+Eg.CREATE table table_name(column1 datatype,...)
+
+ALTER-alters the structure of the database
+Eg. ALTER TABLE table_name ADD column_name datatype;
+    ALTER TABLE table_name DROP column column_name;
+    ALTER TABLE table_name modify column column_name;
+
+DROP-deletes objects from the database(WIPES THE TABLE ITSELF)
+Eg.DROP TABLE table_name;
+
+TRUNCATE-removes all records from a table permanently(WIPES THE TABLE CONTENTS)
+
+- Truncate is auto commit, it cannot be rolled back/
+Eg.TRUNCATE TABLE table_name;
+
+COMMENT-add comments to the data dictionary
+
+RENAME-rename an object
+Eg.RENAME TABLE table_name to table_name1
+
+DML- DATA MANIPULATION LANGUAGE
+
+-used for managing data within objects
+
+INSERT-inserts data into table
+Eg.INSERT INTO table_name VALUES (val1,val2,val3,...);
+
+UPDATE-updates existing data in table
+Eg.UPDATE table_name SET column1=val1,column2=val2,... WHERE condition;
+
+DELETE-delete unwanted/all records from table
+Eg.DELETE FROM table_name WHERE condition;
+
+DCL- DATA CONTROL LANGUAGE
+
+- used for granting and denying access priviliges to users
+
+GRANT-give users access privileges to database
+REVOKE-withdraw access privileges given with the grant command
+
+TCL- TRANSACTION CONTROL LANGUAGE
+
+-used to manage changes made my DML statements
+-Allows statements to be grouped together into logical transactions
+
+COMMIT-save work done
+
+ROLLBACK-restore database to original state since the last COMMIT
+
+SAVEPOINT-identify a point in a transaction to which uou call later roll back
+
+Eg. SAVEPOINT saepoint_name;
+    ROLLBACK TO savepoint_name;
+    Release savepoint savepoint_name;
+    
+    savepoint sp1;
+    delete from customers where ID=1;
+    savepoint sp2;
+    delete from customers where ID=2;
+    savepoint sp3;
+    delete from customers where ID=3;
+    rollback to sp2;
+
+
+for upper case conversion use uppercase or ucase
+for lower case conversion use lowercase or lcase
+
+use keyword distinct for filtering unique fields
+Eg.select distinct title,salary from employees;
+
+to sort in SQL, use order by keyword
+if the sort type is not specified , sql sorts by ascending order by default
+Eg.select * from employees order by salary desc;
+
+
+to filter a string based on starting letter or ending letter the % is used
+eg. to find tom is t%
+    to find joe the ending e letter is used %e
+    select * from customers where first_name like 'g%';
+    select * from customer where first_name like '%ee%' or last_name like '%ee%';(output                                                                                     green)
+    use keyword concat to join two table and display it as seperate table
+    Eg. select first_name,last_name,concat(first_name,' ',last_name) as full_name from customer;
+     
+
+    
